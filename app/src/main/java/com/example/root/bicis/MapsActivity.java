@@ -4,6 +4,7 @@ package com.example.root.bicis;
  * Created by root on 5/06/17.
  */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -29,6 +30,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ArrayList<Bicicleta> bS=new ArrayList<Bicicleta>();
+    private Sitios sitio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     public boolean onMarkerClick(final Marker marker) {
-        Sitios sitio = (Sitios) marker.getTag();
+        sitio = (Sitios) marker.getTag();
         //Toast.makeText(this, sitio.getNombre(), Toast.LENGTH_SHORT).show();
         ListView bicis = (ListView) findViewById(R.id.Bdisponibles);
         TextView placa = (TextView) findViewById(R.id.b_placa);
@@ -104,8 +106,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapter, View view, int position,
-                            long ID) {
-        Toast.makeText(this, bS.get(position).getPlaca() ,Toast.LENGTH_SHORT).show();
+    public void onItemClick(AdapterView<?> adapter, View view, int position, long ID) {
+        if (bS.get(position).getEstado().equals("disponible")){
+            Intent intent = new Intent(getBaseContext(), OtraVista.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("sitio", sitio);
+            bundle.putSerializable("bicicleta", bS.get(position));
+            intent.putExtras(bundle);
+            MapsActivity.this.startActivity(intent);
+        }else{
+            Toast.makeText(this, "bicicleta no disponible" ,Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

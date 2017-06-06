@@ -1,12 +1,13 @@
 package com.example.root.bicis.logica;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by root on 5/06/17.
  */
 
-public class Sitios {
+public class Sitios implements Serializable{
     private String nombre;
     private String direccion;
     private double lat;

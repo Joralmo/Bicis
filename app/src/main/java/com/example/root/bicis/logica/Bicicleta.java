@@ -3,11 +3,13 @@ package com.example.root.bicis.logica;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 /**
  * Created by root on 5/06/17.
  */
 
-public class Bicicleta {
+public class Bicicleta implements Serializable{
 
     private String placa;
     private String tipo;
@@ -17,6 +19,10 @@ public class Bicicleta {
         this.placa = object.getString("placa");
         this.tipo = object.getString("tipo");
         this.estado = object.getString("estado");
+    }
+
+    public Bicicleta(){
+
     }
 
     public String getPlaca() {
