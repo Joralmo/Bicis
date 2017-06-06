@@ -38,11 +38,11 @@
                         android:id="@+id/map"
                         android:name="com.google.android.gms.maps.SupportMapFragment"
                         android:layout_width="match_parent"
-                        android:layout_height="195dp" />
+                        android:layout_height="176dp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="318dp"
                         android:padding="20dp">
 
                         <TextView
@@ -61,6 +61,65 @@
                             android:layout_marginTop="15dp"
                             android:text="Placa:" />
 
+                        <TextView
+                            android:id="@+id/ViewNombre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_below="@+id/b_placa"
+                            android:layout_marginTop="13dp"
+                            android:text="STORE:"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/ViewNombre"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@+id/ViewNombre"
+                            android:layout_toRightOf="@+id/ViewNombre" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_below="@+id/ViewNombre"
+                            android:layout_marginTop="15dp"
+                            android:text="DIRECCIÓN:"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/ViewDirec"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/textView5"
+                            android:layout_alignStart="@+id/textView5"
+                            android:layout_alignTop="@+id/textView3" />
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ViewDirec"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="13dp"
+                            android:text="BICICLETAS DISPONIBLES"
+                            android:textStyle="bold" />
+
+                        <ListView
+                            android:id="@+id/Bdisponibles"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_below="@+id/textView5"
+                            android:layout_marginTop="10dp" />
+
                     </RelativeLayout>
 
                     <LinearLayout
@@ -74,7 +133,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:layout_weight="1"
-                            android:text="Button" />
+                            android:text="¡QUIERO PRESTAR!" />
                     </LinearLayout>
 
                 </LinearLayout>

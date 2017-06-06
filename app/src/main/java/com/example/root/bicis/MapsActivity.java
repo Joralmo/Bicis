@@ -6,11 +6,13 @@ package com.example.root.bicis;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.root.bicis.logica.Bicicleta;
+import com.example.root.bicis.logica.BicicletaAdapter;
 import com.example.root.bicis.logica.Sitios;
 import com.example.root.bicis.logica.jsonBicicletas;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -18,6 +20,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.Marker;
+
+import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
@@ -69,10 +73,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public boolean onMarkerClick(final Marker marker) {
         Sitios sitio = (Sitios) marker.getTag();
         //Toast.makeText(this, sitio.getNombre(), Toast.LENGTH_SHORT).show();
+        ListView bicis = (ListView) findViewById(R.id.Bdisponibles);
         TextView placa = (TextView) findViewById(R.id.b_placa);
         TextView tipo = (TextView) findViewById(R.id.b_tipo);
-        placa.setText("Placa: "+sitio.getBicicletas().get(0).getPlaca());
-        tipo.setText("Tipo: "+sitio.getBicicletas().get(0).getTipo());
+        ArrayList<Bicicleta> bS=new ArrayList<Bicicleta>();
+        bS=sitio.getBicicletas();
+        BicicletaAdapter adapter = new BicicletaAdapter(this, bS);
+        bicis.setAdapter(adapter);
+
+        /*for(int i=0;i<bS.size();i++){
+            placa.setText(placa.getText()+bS.get(i).getPlaca());
+            tipo.setText(tipo.getText()+bS.get(i).getTipo());
+        }*/
+        //placa.setText("Placa: "+sitio.getBicicletas().get(0).getPlaca());
+        //tipo.setText("Tipo: "+sitio.getBicicletas().get(0).getTipo());
        /* Bicicleta bicicleta = (Bicicleta) marker.getTag();
 
         TextView placa = (TextView) findViewById(R.id.b_placa);

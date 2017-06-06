@@ -11,13 +11,11 @@ public class Bicicleta {
 
     private String placa;
     private String tipo;
-    private String color;
     private String estado;
 
     public Bicicleta(JSONObject object) throws JSONException{
         this.placa = object.getString("placa");
         this.tipo = object.getString("tipo");
-        this.color = object.getString("color");
         this.estado = object.getString("estado");
     }
 
@@ -35,14 +33,6 @@ public class Bicicleta {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public String getEstado() {
