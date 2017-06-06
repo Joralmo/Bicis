@@ -6,6 +6,8 @@ package com.example.root.bicis;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -23,9 +25,10 @@ import com.google.android.gms.maps.model.Marker;
 
 import java.util.ArrayList;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, AdapterView.OnItemClickListener {
 
     private GoogleMap mMap;
+    private ArrayList<Bicicleta> bS=new ArrayList<Bicicleta>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +79,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ListView bicis = (ListView) findViewById(R.id.Bdisponibles);
         TextView placa = (TextView) findViewById(R.id.b_placa);
         TextView tipo = (TextView) findViewById(R.id.b_tipo);
-        ArrayList<Bicicleta> bS=new ArrayList<Bicicleta>();
         bS=sitio.getBicicletas();
         BicicletaAdapter adapter = new BicicletaAdapter(this, bS);
         bicis.setAdapter(adapter);
+        bicis.setOnItemClickListener(this);
 
         /*for(int i=0;i<bS.size();i++){
             placa.setText(placa.getText()+bS.get(i).getPlaca());
@@ -98,5 +101,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Toast.makeText(this, marker.getTitle(),Toast.LENGTH_SHORT).show();
         return false;*/
        return false;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapter, View view, int position,
+                            long ID) {
+        Toast.makeText(this, bS.get(position).getPlaca() ,Toast.LENGTH_SHORT).show();
     }
 }
