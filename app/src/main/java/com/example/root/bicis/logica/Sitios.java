@@ -22,6 +22,8 @@ public class Sitios implements Serializable{
         this.bicicletas = bicicletas;
     }
 
+    public Sitios(){}
+
     public String getNombre() {
         return nombre;
     }

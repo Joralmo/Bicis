@@ -5,9 +5,11 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.root.bicis.R;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -90,7 +92,7 @@ public class jsonBicicletas extends AsyncTask<String, Integer, String> {
                 //Bicicleta bicicleta = new Bicicleta(object);
                 LatLng lat = new LatLng(sitio.getLat(), sitio.getLon());
 
-                Marker marker = this.map.addMarker(new MarkerOptions().position(lat).title(sitio.getNombre()));
+                Marker marker = this.map.addMarker(new MarkerOptions().position(lat).title(sitio.getNombre()).icon(BitmapDescriptorFactory.fromResource(R.drawable.sitio)));
                 //Toast.makeText(this.ctx, sitio.getNombre(), Toast.LENGTH_LONG).show();
                 this.map.moveCamera(CameraUpdateFactory.newLatLng(lat));
                 marker.setTag(sitio);
