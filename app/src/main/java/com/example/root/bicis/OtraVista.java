@@ -3,7 +3,6 @@ package com.example.root.bicis;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -11,13 +10,10 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.root.bicis.logica.Bicicleta;
 import com.example.root.bicis.logica.DirectionFinder;
-import com.example.root.bicis.logica.DirectionFinderListener;
-import com.example.root.bicis.logica.Route;
 import com.example.root.bicis.logica.Sitios;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -27,10 +23,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 /**
  * Created by root on 6/06/17.
